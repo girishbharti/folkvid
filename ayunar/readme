@@ -1,0 +1,8 @@
+Run the below command
+
+for installing the packages
+1. npm install
+2. bower install
+
+to run project and navigate the URL = http://localhost:8080/
+3. gulp serve
