@@ -1,4 +1,4 @@
-name := """folkvid"""
+name := """fuerza"""
 
 version := "1.0-SNAPSHOT"
 
