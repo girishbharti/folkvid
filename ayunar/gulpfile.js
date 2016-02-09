@@ -83,6 +83,6 @@ gulp.task('watch', ['scripts', 'images', 'stylesheet'], function() {
 
 gulp.task('serve', function() {
   connect.server({
-    livereload: true
+    livereload: true,
   });
 });
