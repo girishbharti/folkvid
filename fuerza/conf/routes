@@ -14,3 +14,15 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 #POST	/verifysignup				controllers.Login.verifysignup
 #POST	/changepassword				controllers.Login.changepassword
 #POST	/forgetpassword				controllers.Login.forgetpassword
+
+
+#routes for Uploader
+POST	/upload						controllers.Uploader.upload
+GET		/uploadpage					controllers.Uploader.uploadpage
+
+
+
+#routes for downloader
+POST	/download					controllers.Downloader.download
+
+
