@@ -1,0 +1,17 @@
+@* uploader Template File *@
+@(message: String)
+
+@main("Welcome to Play") {
+
+    	Uploader example:<br/>
+        @helper.form(action = routes.Uploader.upload, 'enctype -> "multipart/form-data") {
+    
+    	<input type="file" name="picture">
+    
+    	<p>
+    	    <input type="submit">
+    	</p>
+    
+		}
+
+}
