@@ -43,20 +43,23 @@ gulp.task('scripts', function() {
     .pipe(customPlumber("Error Running JS"))
     .pipe(uglify())
     .pipe(concat('all.js'))
-    .pipe(gulp.dest(paths.dist + '/scripts'));
+    .pipe(gulp.dest(paths.dist + '/scripts'))
+    .pipe(connect.reload());
 });
 
 gulp.task('jshint', function(){
     gulp.src(paths.scripts)
     .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter('default'))
+    .pipe(connect.reload());
 });
 
 gulp.task('images', function() {
  return gulp.src(paths.images)
    .pipe(customPlumber("Error Running Sass"))
     .pipe(imagemin({optimizationLevel: 5}))
-    .pipe(gulp.dest(paths.dist + '/images'));
+    .pipe(gulp.dest(paths.dist + '/images'))
+    .pipe(connect.reload());
 });
 
 gulp.task('stylesheet', function() {
@@ -70,10 +73,9 @@ gulp.task('stylesheet', function() {
       cascade: false
     }))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(paths.dist + '/css'));
+    .pipe(gulp.dest(paths.dist + '/css'))
+    .pipe(connect.reload());
 });
-
-gulp.task('default', ['clean']);
 
 gulp.task('watch', ['scripts', 'images', 'stylesheet'], function() {
   gulp.watch(paths.scripts, ['scripts']);
@@ -84,5 +86,8 @@ gulp.task('watch', ['scripts', 'images', 'stylesheet'], function() {
 gulp.task('serve', function() {
   connect.server({
     livereload: true,
+    root:'templates'
   });
 });
+
+gulp.task('default', ['watch', 'serve']);
