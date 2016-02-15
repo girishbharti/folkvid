@@ -6,7 +6,8 @@
 GET     /                           controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+#GET     /assets/*file               controllers.Assets.versioned(path="public", file: Asset)
+GET 	/assets/*file 				controllers.Assets.at(path="/public", file)
 
 #These are the outs to provide services related to log/sighnup/password
 #POST	/login						controllers.Login.login
@@ -14,3 +15,15 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 #POST	/verifysignup				controllers.Login.verifysignup
 #POST	/changepassword				controllers.Login.changepassword
 #POST	/forgetpassword				controllers.Login.forgetpassword
+
+
+#routes for Uploader
+POST	/upload						controllers.Uploader.upload
+GET		/uploadpage					controllers.Uploader.uploadpage
+
+
+
+#routes for downloader
+POST	/download					controllers.Downloader.download
+
+
